@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="[scrollbar-gutter:stable]">
-  <head>
+  <head  >
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content={get_csrf_token()} />
@@ -11,8 +11,18 @@
     <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
     </script>
   </head>
-  <body class="bg-white">
-    <ul class="relative z-10 flex items-center gap-4 px-4 sm:px-6 lg:px-8 justify-end">
+  <body class="pt-4">
+
+  <p class = "pl-2 ">
+              <.link
+                href={~p"/"}
+                class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
+              >
+                Home
+              </.link>
+            </p>
+   <ul class="relative z-10 flex items-center gap-4 px-4 sm:px-6 lg:px-8 justify-end">
+
       <%= if @current_user do %>
         <li class="text-[0.8125rem] leading-6 text-zinc-900">
           {@current_user.email}
@@ -35,14 +45,16 @@
           </.link>
         </li>
       <% else %>
-        <li>
-          <.link
-            href={~p"/users/register"}
-            class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
-          >
-            Register
-          </.link>
-        </li>
+
+         <li>
+                  <.link
+                    href={~p"/users/register"}
+                    class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
+                  >
+                    Register
+                  </.link>
+                </li>
+
         <li>
           <.link
             href={~p"/users/log_in"}

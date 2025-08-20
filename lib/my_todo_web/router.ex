@@ -21,8 +21,8 @@ defmodule MyTodoWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
-#    resources "/todos", TodoController
     resources "/todos", TodoController, only: [:index, :show, :new, :create]
+    live "/counter", CounterLive
   end
 
   # Protected (must be logged in)
